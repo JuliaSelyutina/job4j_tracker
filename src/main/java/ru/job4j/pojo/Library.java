@@ -8,22 +8,22 @@ public class Library {
         Book book4 = new Book("The Object-Oriented Thought Process", 256);
         Book bookTMP;
         Book[] books = {book1, book2, book3, book4};
-        for (int index = 0; index < books.length; index++) {
-            System.out.println(books[index].getName() + " - number of pages: " + books[index].getNumberOfPages());
+        for (Book book : books) {
+            System.out.println(book.getName() + " - number of pages: " + book.getNumberOfPages());
         }
         System.out.println();
         System.out.println("Array of books after replace:");
         bookTMP = books[3];
         books[3] = books[0];
         books[0] = bookTMP;
-        for (int index = 0; index < books.length; index++) {
-            System.out.println(books[index].getName() + " - number of pages: " + books[index].getNumberOfPages());
+        for (Book book : books) {
+            System.out.println(book.getName() + " - number of pages: " + book.getNumberOfPages());
         }
         System.out.println();
         System.out.println("Array elements with name \"Clean code\":");
-        for (int index = 0; index < books.length; index++) {
-            if (books[index].getName().equals("Clean code")) {
-                System.out.println(books[index].getName() + " - number of pages: " + books[index].getNumberOfPages());
+        for (Book book : books) {
+            if ("Clean code".equals(book.getName())) {
+                System.out.println(book.getName() + " - number of pages: " + book.getNumberOfPages());
             }
         }
     }
