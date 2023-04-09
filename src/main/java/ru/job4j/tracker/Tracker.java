@@ -26,27 +26,18 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        int sizeOfNotEmptyItems = 0;
-        Item[] tmpItems = new Item[items.length];
-        for (int index = 0; index < items.length; index++) {
-            if (items[index] != null) {
-                tmpItems[sizeOfNotEmptyItems] = items[index];
-                sizeOfNotEmptyItems++;
-            }
-        }
-        return Arrays.copyOf(tmpItems, sizeOfNotEmptyItems);
+        return Arrays.copyOf(items, size);
     }
 
-    @SuppressWarnings("checkstyle:EmptyBlock")
     public Item[] findByName(String key) {
-        int sizeOfEqualItems = 0;
-        Item[] tmpItems = new Item[items.length];
-        for (int index = 0; index < items.length; index++) {
+        int counter = 0;
+        Item[] tmpItems = new Item[size];
+        for (int index = 0; index < size; index++) {
             if (items[index] != null && key.equals(items[index].getName())) {
-                tmpItems[sizeOfEqualItems] = items[index];
-                sizeOfEqualItems++;
+                tmpItems[counter] = items[index];
+                counter++;
             }
         }
-        return Arrays.copyOf(tmpItems, sizeOfEqualItems);
+        return Arrays.copyOf(tmpItems, counter);
     }
 }
