@@ -1,9 +1,9 @@
 package ru.job4j.poly;
 
 public class Service {
-    private FileStore store;
+    private Store store;
 
-    public Service(FileStore store) {
+    public Service(Store store) {
         this.store = store;
     }
 
@@ -12,7 +12,7 @@ public class Service {
     }
 
     public static void main(String[] args) {
-        FileStore store = new MemStore();
+        FileStore store = new FileStore();
         Service service = new Service(store);
         service.add();
     }
