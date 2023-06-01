@@ -162,7 +162,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("first"));
         Item two = tracker.add(new Item("second"));
-        String findId = "2";
+        String findId = String.valueOf(two.getId());
         Input in = new StubInput(new String[] {"0", findId, "1"});
         UserAction[] actions = new UserAction[] {
                 new FindItemByIdAction(out),
