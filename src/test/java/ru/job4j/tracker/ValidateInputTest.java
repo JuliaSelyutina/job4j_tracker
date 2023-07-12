@@ -34,7 +34,9 @@ class ValidateInputTest {
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
-        assertThat(selected).isIn(0, 1);
+        assertThat(selected).isEqualTo(0);
+        selected = input.askInt("Enter menu:");
+        assertThat(selected).isEqualTo(1);
     }
 
     @Test
