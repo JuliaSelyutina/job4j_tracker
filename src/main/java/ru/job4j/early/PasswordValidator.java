@@ -23,7 +23,7 @@ public class PasswordValidator {
      * @return Вернет пароль или выбросит исключение.
      */
     public static String validate(String password) {
-        if ( password == null ) {
+        if (password == null) {
             throw new IllegalArgumentException(
                     "Password can't be null"
             );
