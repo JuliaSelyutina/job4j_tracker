@@ -35,11 +35,6 @@ public class PasswordValidator {
         boolean hasSpecial = false;
         String pas = password.toLowerCase();
 
-        if (password.isEmpty()) {
-            throw new IllegalArgumentException(
-                    "Password can't be null"
-            );
-        }
         if (password.length() < 8 || password.length() > 32) {
             throw new IllegalArgumentException(
                     "Password should be length [8, 32]"
@@ -64,6 +59,9 @@ public class PasswordValidator {
             }
             if (!Character.isLetterOrDigit(symbol)) {
                 hasSpecial = true;
+            }
+            if (hasUpCase && hasLowCase && hasDigit && hasSpecial) {
+                break;
             }
 
         }
