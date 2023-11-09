@@ -3,6 +3,7 @@ package ru.job4j.fabric.draw;
 public class Rectangle implements Shape {
     int a;
     int b;
+
     public Rectangle(int a, int b) {
         this.a = a;
         this.b = b;
