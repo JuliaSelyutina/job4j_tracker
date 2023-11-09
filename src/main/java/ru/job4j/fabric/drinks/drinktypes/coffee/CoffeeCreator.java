@@ -1,9 +1,9 @@
-package ru.job4j.fabric.drinks.drinkTypes.coffee;
+package ru.job4j.fabric.drinks.drinktypes.coffee;
 
 import ru.job4j.fabric.drinks.Drink;
 import ru.job4j.fabric.drinks.DrinkFactoryCreator;
-import ru.job4j.fabric.drinks.drinkTypes.DrinkTypes;
-import ru.job4j.fabric.drinks.drinkTypes.coffee.drinksMenu.*;
+import ru.job4j.fabric.drinks.drinktypes.DrinkTypes;
+import ru.job4j.fabric.drinks.drinktypes.coffee.drinksmenu.*;
 
 public class CoffeeCreator extends DrinkFactoryCreator {
     @Override
