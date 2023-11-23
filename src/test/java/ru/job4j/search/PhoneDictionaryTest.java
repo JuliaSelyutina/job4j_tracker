@@ -17,4 +17,14 @@ public class PhoneDictionaryTest {
         assertThat(persons).isNotEmpty();
         assertThat(persons.get(0).getSurname()).isEqualTo("Arsentev");
     }
+
+    @Test
+    public void whenNotFindByName() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Ivan", "Ivanov", "111234", "Ivanovo")
+        );
+        ArrayList<Person> persons = phones.find("Anton");
+        assertThat(persons).isEmpty();
+    }
 }
