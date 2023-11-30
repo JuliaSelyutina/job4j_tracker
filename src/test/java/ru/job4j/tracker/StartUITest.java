@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.jupiter.api.Test;
+import ru.job4j.tracker.action.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,8 +14,8 @@ class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new CreateAction(out),
-                new ExitProgramAction(out)
+                new Create(out),
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
@@ -31,7 +32,7 @@ class StartUITest {
         );
         UserAction[] actions = {
                 new EditAction(out),
-                new ExitProgramAction(out)
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName()).isEqualTo(replacedName);
@@ -46,8 +47,8 @@ class StartUITest {
                 new String[] {"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
-                new DeleteItemAction(out),
-                new ExitProgramAction(out)
+                new DeleteItem(out),
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId())).isNull();
@@ -62,7 +63,7 @@ class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ExitProgramAction(out)
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString()).isEqualTo(
@@ -83,7 +84,7 @@ class StartUITest {
         );
         UserAction[] actions = new UserAction[] {
                 new EditAction(out),
-                new ExitProgramAction(out)
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -108,8 +109,8 @@ class StartUITest {
         Item second = tracker.add(new Item("second item"));
         Input in = new StubInput(new String[] {"0", "1"});
         UserAction[] actions = new UserAction[] {
-                new ShowAllItemsAction(out),
-                new ExitProgramAction(out)
+                new ShowAllItems(out),
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -137,8 +138,8 @@ class StartUITest {
         String findName = "first";
         Input in = new StubInput(new String[] {"0", findName, "1"});
         UserAction[] actions = new UserAction[] {
-                new FindItemsByNameAction(out),
-                new ExitProgramAction(out)
+                new FindItemsByName(out),
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
@@ -165,8 +166,8 @@ class StartUITest {
         String findId = String.valueOf(two.getId());
         Input in = new StubInput(new String[] {"0", findId, "1"});
         UserAction[] actions = new UserAction[] {
-                new FindItemByIdAction(out),
-                new ExitProgramAction(out)
+                new FindItemById(out),
+                new ExitProgram(out)
         };
         String ln = System.lineSeparator();
         new StartUI(out).init(in, tracker, actions);
@@ -191,7 +192,7 @@ class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
-                new ExitProgramAction(out)
+                new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
