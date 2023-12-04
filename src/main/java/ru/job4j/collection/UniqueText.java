@@ -11,10 +11,11 @@ public class UniqueText {
         for (String word : origin) {
             check.add(word);
         }
-        for (String word : text)
+        for (String word : text) {
             if (!check.contains(word)) {
                 rsl = false;
             }
-        return rsl;
-    }
+        }
+            return rsl;
+        }
 }
