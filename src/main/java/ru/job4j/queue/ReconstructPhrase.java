@@ -19,7 +19,7 @@ public class ReconstructPhrase {
             if (i % 2 == 0) {
                 rsl.append(evenElements.pollFirst());
             } else {
-                evenElements.removeFirst();
+                evenElements.pollFirst();
             }
         }
         return rsl.toString();
