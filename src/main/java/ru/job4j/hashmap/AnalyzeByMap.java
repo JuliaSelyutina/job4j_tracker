@@ -68,22 +68,25 @@ public class AnalyzeByMap {
     }
 
     public static Label bestSubject(List<Pupil> pupils) {
+        String resultSubjectName = "";
+        int resultSubjectScore = 0;
         ArrayList<Label> result = new ArrayList<>();
         LinkedHashMap<String, Integer> subjectsTotals = subjectTotalScores(pupils);
         subjectsTotals.forEach((key, value) -> result.add(new Label(key, value)));
-        result.sort(Comparator.naturalOrder());
-        return result.get(result.size() - 1);
+        for (Label item : result) {
+            if (item.score() > resultSubjectScore) {
+                resultSubjectName = item.name();
+                resultSubjectScore = (int) item.score();
+            }
+        }
+        return new Label(resultSubjectName, resultSubjectScore);
     }
 
     private static LinkedHashMap subjectTotalScores(List<Pupil> pupils) {
         LinkedHashMap<String, Integer> subjectsTotals = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                final var subjectName = subject.name();
-                final var subjectScore = subject.score();
-                if (subjectsTotals.computeIfPresent(subjectName, (key, value) -> value + subjectScore) == null) {
-                    subjectsTotals.put(subjectName, subjectScore);
-                }
+                subjectsTotals.put(subject.name(), subject.score() + subjectsTotals.getOrDefault(subject.name(), 0));
             }
         }
         return subjectsTotals;
