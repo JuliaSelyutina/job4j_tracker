@@ -10,7 +10,7 @@ class StartUITest {
     public void whenCreateItem() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "Item name", "1"}
+                new String[]{"0", "Item name", "1"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -18,7 +18,7 @@ class StartUITest {
                 new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName()).isEqualTo("Item name");
+        assertThat(tracker.findAll().get(0).getName()).isEqualTo("Item name");
     }
 
     @Test
@@ -28,7 +28,7 @@ class StartUITest {
         Item item = tracker.add(new Item("Replaced item"));
         String replacedName = "New item name";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), replacedName, "1"}
+                new String[]{"0", String.valueOf(item.getId()), replacedName, "1"}
         );
         UserAction[] actions = {
                 new EditAction(out),
@@ -44,7 +44,7 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Deleted item"));
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(item.getId()), "1"}
+                new String[]{"0", String.valueOf(item.getId()), "1"}
         );
         UserAction[] actions = {
                 new DeleteItem(out),
@@ -59,7 +59,7 @@ class StartUITest {
         String ln = System.lineSeparator();
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0"}
+                new String[]{"0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
@@ -80,9 +80,9 @@ class StartUITest {
         Item one = tracker.add(new Item("test1"));
         String replaceName = "New Test Name";
         Input in = new StubInput(
-                new String[] {"0", String.valueOf(one.getId()), replaceName, "1"}
+                new String[]{"0", String.valueOf(one.getId()), replaceName, "1"}
         );
-        UserAction[] actions = new UserAction[] {
+        UserAction[] actions = new UserAction[]{
                 new EditAction(out),
                 new ExitProgram(out)
         };
@@ -107,8 +107,8 @@ class StartUITest {
         Tracker tracker = new Tracker();
         Item first = tracker.add(new Item("first item"));
         Item second = tracker.add(new Item("second item"));
-        Input in = new StubInput(new String[] {"0", "1"});
-        UserAction[] actions = new UserAction[] {
+        Input in = new StubInput(new String[]{"0", "1"});
+        UserAction[] actions = new UserAction[]{
                 new ShowAllItems(out),
                 new ExitProgram(out)
         };
@@ -136,8 +136,8 @@ class StartUITest {
         Item two = tracker.add(new Item("first"));
         Item three = tracker.add(new Item("second"));
         String findName = "first";
-        Input in = new StubInput(new String[] {"0", findName, "1"});
-        UserAction[] actions = new UserAction[] {
+        Input in = new StubInput(new String[]{"0", findName, "1"});
+        UserAction[] actions = new UserAction[]{
                 new FindItemsByName(out),
                 new ExitProgram(out)
         };
@@ -164,8 +164,8 @@ class StartUITest {
         Item one = tracker.add(new Item("first"));
         Item two = tracker.add(new Item("second"));
         String findId = String.valueOf(two.getId());
-        Input in = new StubInput(new String[] {"0", findId, "1"});
-        UserAction[] actions = new UserAction[] {
+        Input in = new StubInput(new String[]{"0", findId, "1"});
+        UserAction[] actions = new UserAction[]{
                 new FindItemById(out),
                 new ExitProgram(out)
         };
@@ -188,7 +188,7 @@ class StartUITest {
     public void whenInvalidExit() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"-3", "0"}
+                new String[]{"-3", "0"}
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = new UserAction[]{
