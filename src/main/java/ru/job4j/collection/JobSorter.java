@@ -6,16 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class JobSorter {
-    /*
-    1. Для модели ru.job4j.collection.Job создайте 4 компаратора:
- - по возрастанию имени;
- - по возрастанию приоритета;
- - по убыванию имени;
- - по убыванию приоритета.
-2. Напишите тесты, проверяющие отдельно поведение компараторов.
-3. Напишите тесты, проверяющие поведение комбинированных компараторов.
-     */
-
     public static void main(String[] args) {
         List<Job> jobs = Arrays.asList(
                 new Job("Fix bugs", 4),
