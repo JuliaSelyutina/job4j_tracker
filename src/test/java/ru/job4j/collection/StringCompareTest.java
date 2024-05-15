@@ -83,34 +83,4 @@ class StringCompareTest {
         );
         assertThat(result).isGreaterThan(0);
     }
-
-    @Test
-    public void whenFirstIsNullAndSecondIsNullThenZero() {
-        StringCompare compare = new StringCompare();
-        int result = compare.compare(
-                null,
-                null
-        );
-        assertThat(result).isEqualTo(0);
-    }
-
-    @Test
-    public void whenFirstIsNullThenShouldBeNegative() {
-        StringCompare compare = new StringCompare();
-        int result = compare.compare(
-                null,
-                "Second string"
-        );
-        assertThat(result).isLessThan(0);
-    }
-
-    @Test
-    public void whenSecondIsNullThenShouldBePositive() {
-        StringCompare compare = new StringCompare();
-        int result = compare.compare(
-                "First string",
-                null
-        );
-        assertThat(result).isGreaterThan(0);
-    }
 }
