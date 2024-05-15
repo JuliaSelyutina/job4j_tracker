@@ -8,7 +8,7 @@ public class LexSort implements Comparator<String> {
         return Integer.compare(intExtractorFromString(left), intExtractorFromString(right));
     }
 
-    private int intExtractorFromString (String value) {
+    private int intExtractorFromString(String value) {
         String newValue = "";
         String[] words = value.split("\\.");
         for (String word : words) {
