@@ -9,11 +9,6 @@ public class LexSort implements Comparator<String> {
     }
 
     private int intExtractorFromString(String value) {
-        String newValue = "";
-        String[] words = value.split("\\.");
-        for (String word : words) {
-            newValue += word.replaceAll("[^0-9]+", "");
-        }
-        return Integer.parseInt(newValue);
+        return Integer.parseInt(value.split("\\.")[0]);
     }
 }
